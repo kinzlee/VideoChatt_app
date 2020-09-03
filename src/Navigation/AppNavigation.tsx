@@ -10,8 +10,7 @@ import Authentication from '../screens/AuthenticationScreen';
 
 type StackParamList =  {
     Authentication: undefined,
-    CallScheduler: undefined,
-    Starter: undefined
+    CallScheduler: undefined
 }
 
 type StackParamListOne = {
@@ -21,12 +20,11 @@ type StackParamListOne = {
 const Stack = createStackNavigator<StackParamList>();
 
 
-const mainNavigation = () => {
+const MainNavigation = () => {
     return (
-        <Stack.Navigator>
-        <Stack.Screen name="Starter" component={Starter} />
-        <Stack.Screen name="CallScheduler" component={CallScheduler} />
+        <Stack.Navigator headerMode="none">
         <Stack.Screen name="Authentication" component={Authentication} />
+        <Stack.Screen name="CallScheduler" component={CallScheduler} />
         </Stack.Navigator>
     )
 }
@@ -35,22 +33,53 @@ const StackOne = createStackNavigator<StackParamListOne>();
 
 const FirstNavigation = () => {
     return (
-        <StackOne.Navigator>
+        <StackOne.Navigator headerMode="none">
             <StackOne.Screen name="StarterOne" component={StarterOne} />
         </StackOne.Navigator>
     )
 }
 
+type StackParamListTwo = {
+    Starter: undefined    
+}
+
+const StackTwo = createStackNavigator<StackParamListTwo>();
+
+
+const SecondNavigation = () => {
+    return (
+        <StackTwo.Navigator>
+            <StackTwo.Screen name="Starter" component={Starter} />
+        </StackTwo.Navigator>
+    )
+}
+
 const Tab = createMaterialTopTabNavigator();
+
+const TabNavigation = () => {
+    return (
+            <Tab.Navigator
+            tabBarOptions={{
+                showLabel: false,
+                
+            }}
+            >
+                <Tab.Screen name="StarterOne" component={FirstNavigation} />
+                <Tab.Screen name="Starter" component={SecondNavigation} />
+            </Tab.Navigator>
+    )
+}
+
+const Main = createStackNavigator();
 
 const AppNavigation = () => {
     return (
-        <NavigationContainer>
-            <Tab.Navigator>
-                <Tab.Screen name="StarterOne" component={FirstNavigation} />
-                <Tab.Screen name="Starter" component={mainNavigation} />
-            </Tab.Navigator>
-        </NavigationContainer>
+            <NavigationContainer>
+                <Main.Navigator headerMode="none">
+                    <Main.Screen name="StarterOne" component={TabNavigation} />
+                    <Main.Screen name="Authentication" component={MainNavigation} />
+                </Main.Navigator>
+            </NavigationContainer>
     )
 }
 
