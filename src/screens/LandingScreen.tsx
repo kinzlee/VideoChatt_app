@@ -6,7 +6,8 @@ import colors from '../constants/colors';
 
 const LandingScreen: any = ({navigation}) => {
     return (
-        <View style={styles.screen}>
+        <View style={styles.container}>
+            <View style={styles.screen}>
             <View style={styles.svgContainer}>
             <SvgThree height={400} width={300} />
             <View style={styles.headTextContainer}>
@@ -25,20 +26,31 @@ const LandingScreen: any = ({navigation}) => {
             </View>
             
             </View>
-            <Text style={styles.textStyle}> This is the  Landing Screen</Text>
+            
+        </View>
+        <View style={styles.footer}>
+            <View style={styles.footerContent}>
+                <Text style={styles.footerText}> Please Sign In to continue </Text>
             <View style={styles.btnContainer}>
                 <TouchableOpacity onPress={()=>navigation.navigate('Authentication')} ><Text style={styles.btnText}>SignIn</Text></TouchableOpacity>
             </View>
+            </View>
+            
         </View>
+        </View>
+        
     )
 };
 
 const styles = StyleSheet.create({
-    screen: {
+    container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
         backgroundColor: colors.primaryColor
+    },
+    screen: {
+        flex: 2,
+        justifyContent: 'flex-start',
+        alignItems: 'center'
     },
     svgContainer: {
         flexDirection: "row",
@@ -50,7 +62,7 @@ const styles = StyleSheet.create({
     },
     headTextContainer: {
         flexDirection: "column",
-        paddingRight: 20        
+        paddingRight: 30        
     },
     headerTextStyle: {
         color: colors.whiteColor,
@@ -65,16 +77,34 @@ const styles = StyleSheet.create({
         fontSize: 24
     },
     btnContainer: {
-        backgroundColor: colors.accentColor,
-        borderRadius: 5,
-        elevation: 4, 
-        padding: 15,
-        marginTop: 20
+        backgroundColor: colors.primaryColor,
+        borderRadius: 10,
+        elevation: 5, 
+        paddingVertical: 4,
+        paddingHorizontal: 1,
+        marginTop: 40,
+        alignItems: "center",
+        justifyContent: "center"
 
     },
     btnText: {
         color: colors.whiteColor,
         fontSize: 16
+    },
+    footer: {
+        flex: 1,
+        backgroundColor: colors.whiteColor,
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
+        
+    },
+    footerText: {
+        color: colors.primaryColor,
+        fontSize: 24
+    },
+    footerContent: {
+        paddingVertical: 55,
+        paddingHorizontal: 30
     }
 })
 

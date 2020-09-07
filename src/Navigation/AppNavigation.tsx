@@ -58,15 +58,14 @@ const SecondNavigation = () => {
 
 
 
-const Tab = createBottomTabNavigator();
+const Tab = createMaterialTopTabNavigator();
 
 const TabNavigation = () => {
     return (
             <Tab.Navigator
             tabBarOptions={{
                 showLabel: false,
-                style:{backgroundColor: colors.primaryColor},
-                activeColor: colors.primaryColor
+                style:{backgroundColor: colors.primaryColor, height: 0},
             }}
             >
                 <Tab.Screen name="StarterOne" component={FirstNavigation} options={{tabBarLabel: 'ddd'}} />

@@ -9,8 +9,12 @@
     "moduleResolution": "node",
     "noEmit": true,
     "strict": false,
-    "target": "esnext"
+    "target": "esnext",
+  "noImplicitAny": false
   },
+  "include": [
+    "src/types/*"
+  ],
   "exclude": [
     "node_modules",
     "babel.config.js",

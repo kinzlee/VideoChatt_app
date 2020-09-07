@@ -1,21 +1,33 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
+import colors from '../constants/colors';
 // import { types } from '@babel/core';
 
 const AuthenticationScreen = ({navigation}) => {
     return (
-        <View style={styles.screen} >
-        <Text>This is the user authentication screen</Text>
-        <Button title="SignIn" onPress={() => navigation.navigate('CallScheduler')} />
+        <View style={styles.container} >
+            <View>
+
+            </View>
+            <View>
+
+            </View>
         </View>
     )
 };
 
 const styles = StyleSheet.create({
-    screen: {
+    container: {
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center"
+        backgroundColor:colors.primaryColor
+    },
+    header: {
+        flex: 1,
+        justifyContent: "flex-end"
+    },
+    footer: {
+        flex: 3,
+        backgroundColor:colors.whiteColor
     }
 })
 

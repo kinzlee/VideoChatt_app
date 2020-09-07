@@ -6,7 +6,8 @@ import SvgTwo from '../assets/img/svgTwo.svg';
 
 const LandingScreenTwo: any = () => {
     return (
-        <View style={styles.screen}>
+        <View style={styles.container}>
+            <View style={styles.screen}>
             <View style={styles.contentContainer}>
             <View style={styles.svgContainer}>
                 <View style={{paddingLeft: 20}}>
@@ -16,21 +17,35 @@ const LandingScreenTwo: any = () => {
                 <SvgTwo height={250} width={150} />
                 </View>
             </View>
-                <View style={{paddingTop: 20, margin: 25}}>
+                
+            </View>
+            <Text style={{color:colors.accentColor}}>Swipe Left '&gt;' </Text>
+        </View>
+        <View style={styles.footer} >
+            <View style={{paddingTop: 14, margin: 20}}>
                     <Text style={styles.textStyle}>This is the Vide Chatt React Native Mobile Application</Text>
                 </View>
-            </View>
-            <Text style={{color:colors.accentColor}}>Swipe Left >></Text>
+                <View style={styles.swipeText}>
+                <Text style={{color:colors.primaryColor}}>Swipe Left &gt;&gt; </Text>
+                </View>
         </View>
+
+        </View>
+        
+        
+
     )
 };
 
 const styles = StyleSheet.create({
-    screen:{
+    container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: "center",
         backgroundColor: colors.primaryColor
+    },
+    screen:{
+        flex: 2,
+        alignItems: 'center',
+        justifyContent: "flex-start",
     },
     contentContainer: {
         flexDirection: "column",
@@ -41,9 +56,22 @@ const styles = StyleSheet.create({
         // paddingBottom: 8s0
     },
     textStyle: {
-        color: colors.whiteColor,
-        fontSize: 24,
+        color: colors.primaryColor,
+        fontSize: 26,
         fontWeight: "bold"
+    },
+    footer: {
+        flex: 1,
+        borderTopRightRadius: 30,
+        borderTopLeftRadius: 30,
+        backgroundColor: colors.whiteColor,
+        paddingVertical: 50,
+        paddingHorizontal: 30
+    },
+    swipeText: {
+        alignItems: 'center',
+        justifyContent: "center",
+        paddingTop: 30
     }
 })
 
