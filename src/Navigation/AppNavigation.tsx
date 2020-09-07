@@ -3,10 +3,12 @@ import {} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Starter from '../screens/LandingScreen';
 import StarterOne from '../screens/LandingScreenTwo';
 import CallScheduler from '../screens/CallSchedulerScreen';
 import Authentication from '../screens/AuthenticationScreen';
+import colors from '../constants/colors';
 
 type StackParamList =  {
     Authentication: undefined,
@@ -48,23 +50,26 @@ const StackTwo = createStackNavigator<StackParamListTwo>();
 
 const SecondNavigation = () => {
     return (
-        <StackTwo.Navigator>
+        <StackTwo.Navigator headerMode="none">
             <StackTwo.Screen name="Starter" component={Starter} />
         </StackTwo.Navigator>
     )
 }
 
-const Tab = createMaterialTopTabNavigator();
+
+
+const Tab = createBottomTabNavigator();
 
 const TabNavigation = () => {
     return (
             <Tab.Navigator
             tabBarOptions={{
                 showLabel: false,
-                
+                style:{backgroundColor: colors.primaryColor},
+                activeColor: colors.primaryColor
             }}
             >
-                <Tab.Screen name="StarterOne" component={FirstNavigation} />
+                <Tab.Screen name="StarterOne" component={FirstNavigation} options={{tabBarLabel: 'ddd'}} />
                 <Tab.Screen name="Starter" component={SecondNavigation} />
             </Tab.Navigator>
     )
