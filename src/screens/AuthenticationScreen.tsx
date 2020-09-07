@@ -1,16 +1,16 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet, TextInput } from 'react-native';
 import colors from '../constants/colors';
 // import { types } from '@babel/core';
 
 const AuthenticationScreen = ({navigation}) => {
     return (
         <View style={styles.container} >
-            <View>
-
+            <View style={styles.header}>
+                <Text style={styles.headerText}>Welcome!</Text>
             </View>
-            <View>
-
+            <View style={styles.footer}>
+                <Text>Footer</Text>
             </View>
         </View>
     )
@@ -23,11 +23,22 @@ const styles = StyleSheet.create({
     },
     header: {
         flex: 1,
-        justifyContent: "flex-end"
+        justifyContent: "flex-end",
+        paddingBottom: 50,
+        paddingHorizontal: 20
+    },
+    headerText: {
+        color: colors.whiteColor,
+        fontSize: 30,
+        fontWeight: "bold"
     },
     footer: {
         flex: 3,
-        backgroundColor:colors.whiteColor
+        backgroundColor:colors.whiteColor,
+        paddingVertical: 45,
+        paddingHorizontal: 60,
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30
     }
 })
 
