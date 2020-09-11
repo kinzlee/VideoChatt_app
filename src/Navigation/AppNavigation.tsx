@@ -8,11 +8,13 @@ import Starter from '../screens/LandingScreen';
 import StarterOne from '../screens/LandingScreenTwo';
 import CallScheduler from '../screens/CallSchedulerScreen';
 import Authentication from '../screens/AuthenticationScreen';
+import VideoCall from '../screens/VideoCallScreen';
 import colors from '../constants/colors';
 
 type StackParamList =  {
     Authentication: undefined,
-    CallScheduler: undefined
+    CallScheduler: undefined, 
+    VideoCall: undefined
 }
 
 type StackParamListOne = {
@@ -26,6 +28,7 @@ const MainNavigation = () => {
     return (
         <Stack.Navigator headerMode="none">
         <Stack.Screen name="Authentication" component={Authentication} />
+        <Stack.Screen name="VideoCall" component={VideoCall} />
         <Stack.Screen name="CallScheduler" component={CallScheduler} />
         </Stack.Navigator>
     )

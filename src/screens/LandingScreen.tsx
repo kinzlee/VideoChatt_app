@@ -38,10 +38,10 @@ const LandingScreen: any = ({
               }
             >
               <Animatable.Text
-              animation="bounceInDown"
-              direction="alternate"
-        easing="ease-in"
-        iterationCount={2}
+                animation="rubberBand"
+                direction="alternate"
+                easing="ease-in-out"
+                iterationCount="infinite"
                 style={
                   styles.headerTextStyle
                 }
@@ -49,10 +49,10 @@ const LandingScreen: any = ({
                 Hey
               </Animatable.Text>
               <Animatable.Text
-              animation="bounceInUp"
-        direction="alternate"
-        easing="ease-in"
-        iterationCount={2}
+                animation="rubberBand"
+                direction="alternate"
+                easing="ease-in-out"
+                iterationCount="infinite"
                 style={
                   styles.headerTextStyle
                 }

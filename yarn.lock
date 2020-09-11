@@ -5313,6 +5313,11 @@ react-is@^16.13.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-i
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-native-agora@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-agora/-/react-native-agora-3.0.1.tgz#d67f808446ef5cd4e8c3cc16f600d80d71ba6381"
+  integrity sha512-IpAvE8GaSQ9iIn40obOKjEYQvLNIosw5kEwJlfmZ/R00fvvBDZnWGoWO7kPu2MzOHjfqJi0xBgFYpWH8QqHFmQ==
+
 react-native-animatable@^1.3.3:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/react-native-animatable/-/react-native-animatable-1.3.3.tgz#a13a4af8258e3bb14d0a9d839917e9bb9274ec8a"

@@ -106,7 +106,9 @@ const AuthenticationScreen = ({navigation}) => {
                      
                 </View>
                 <Animatable.View>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => {
+                        navigation.navigate('VideoCall')
+                    }} >
                         <Text>Sign In</Text>
                     </TouchableOpacity>
                 </Animatable.View>
