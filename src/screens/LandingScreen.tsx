@@ -7,6 +7,8 @@ import {
 } from "react-native"
 import SvgThree from "../assets/img/svgThree.svg"
 import colors from "../constants/colors"
+import * as Animatable from 'react-native-animatable';
+
 
 const LandingScreen: any = ({
   navigation,
@@ -14,7 +16,11 @@ const LandingScreen: any = ({
   return (
     <View style={styles.container}>
       <View style={styles.screen}>
-        <View
+        <Animatable.View
+        animation="fadeInLeft"
+        direction="normal"
+        easing="ease-in-out"
+        iterationCount={6}
           style={styles.svgContainer}
         >
           <SvgThree
@@ -31,47 +37,67 @@ const LandingScreen: any = ({
                 styles.headerContainer
               }
             >
-              <Text
+              <Animatable.Text
+              animation="bounceInDown"
+              direction="alternate"
+        easing="ease-in"
+        iterationCount={2}
                 style={
                   styles.headerTextStyle
                 }
               >
                 Hey
-              </Text>
-              <Text
+              </Animatable.Text>
+              <Animatable.Text
+              animation="bounceInUp"
+        direction="alternate"
+        easing="ease-in"
+        iterationCount={2}
                 style={
                   styles.headerTextStyle
                 }
               >
                 There
-              </Text>
+              </Animatable.Text>
             </View>
             <View
               style={
                 styles.subContainer
               }
             >
-              <Text
+              <Animatable.Text
+              animation="bounceInLeft"
+              direction="normal"
+              easing="ease-in"
                 style={styles.textStyle}
               >
                 Welcome{" "}
-              </Text>
-              <Text
+              </Animatable.Text>
+              <Animatable.Text
+              animation="bounceInRight"
+        direction="normal"
+        easing="ease-in"
                 style={styles.textStyle}
               >
                 {"   "}
                 To{"   "}
-              </Text>
-              <Text
+              </Animatable.Text>
+              <Animatable.Text
+              animation="bounceInLeft"
+        direction="normal"
+        easing="ease-in"
                 style={styles.textStyle}
               >
                 VideoChatt
-              </Text>
+              </Animatable.Text>
             </View>
           </View>
-        </View>
+        </Animatable.View>
       </View>
-      <View style={styles.footer}>
+      <Animatable.View 
+      animation="fadeInUp"
+        direction="normal"
+        easing="ease-in-out" style={styles.footer}>
         <View
           style={styles.footerContent}
         >
@@ -80,7 +106,11 @@ const LandingScreen: any = ({
           >
             Please Sign In to continue
           </Text>
-          <View
+          <Animatable.View
+          animation="pulse"
+        direction="alternate"
+        easing="ease-in-out"
+        iterationCount="infinite"
             style={styles.btnContainer}
           >
             <TouchableOpacity
@@ -102,9 +132,9 @@ const LandingScreen: any = ({
                 </Text>
               </View>
             </TouchableOpacity>
-          </View>
+          </Animatable.View>
         </View>
-      </View>
+      </Animatable.View>
     </View>
   )
 }
@@ -153,7 +183,7 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   btnContnText: {
-    padding: 5
+    padding: 7
   },
   btnText: {
     color: colors.whiteColor,

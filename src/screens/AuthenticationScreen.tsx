@@ -1,17 +1,60 @@
-import React from 'react';
-import { View, Text, StyleSheet, TextInput } from 'react-native';
+import React, {useState} from 'react';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import colors from '../constants/colors';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
+import * as Animatable from 'react-native-animatable';
+
 // import { types } from '@babel/core';
 
 const AuthenticationScreen = ({navigation}) => {
+    const [flow, setFlow] = useState({
+        email: '',
+        Password: '',
+        inputChangeText: false,
+        textHidden: true
+    })
+
+    const onChangeTextHandler = (value) => {
+        if(value.length !== 0) {
+            setFlow({
+                ...flow,
+                email: value,
+                inputChangeText: true
+            })
+        } else {
+            setFlow({
+                ...flow,
+                email: value,
+                inputChangeText: false
+            })
+        }
+    }
+
+    const onChangePasswordHandler = (value) => {
+        setFlow({
+            ...flow,
+            Password: value
+        })
+    }
+
+    const onTextHiddenHandler = () => {
+        setFlow({
+            ...flow,
+            textHidden: !flow.textHidden
+        })
+    } 
+
     return (
         <View style={styles.container} >
             <View style={styles.header}>
-                <Text style={styles.headerText}>Welcome!</Text>
+                <Animatable.Text animation="fadeInRight"
+        direction="normal"
+        easing="ease-in-out" style={styles.headerText}>Welcome!</Animatable.Text>
             </View>
-            <View style={styles.footer}>
+            <Animatable.View animation="fadeInUp"
+        direction="normal"
+        easing="ease-in-out" style={styles.footer}>
                 <Text style={styles.fieldHeader}>Email</Text>
                 <View style={styles.fieldcontainer}>
                     <FontAwesome 
@@ -23,6 +66,7 @@ const AuthenticationScreen = ({navigation}) => {
                     placeholder="Your Email Address"
                     style={styles.inputField}
                     autoCapitalize="none"
+                    onChangeText={(text) => onChangeTextHandler(text)}
                      />
                      <Feather 
                         name="check-circle"
@@ -39,18 +83,38 @@ const AuthenticationScreen = ({navigation}) => {
                     />
                     <TextInput
                     placeholder="Your Password"
-                    secureTextEntry={true}
+                    secureTextEntry={flow.textHidden ? true : false}
                     style={styles.inputField}
                     autoCapitalize="none"
+                    onChangeText={(psswrd) => onChangePasswordHandler(psswrd)}
                      />
-
-                     <Feather 
+                    <TouchableOpacity onPress={onTextHiddenHandler}>
+                        {flow.textHidden ?(
+                            <Feather 
                         name="eye-off"
                         color="#2d2d2d"
                         size={20}
                      />
+                        ): (
+                            <Feather 
+                        name="eye"
+                        color="#2d2d2d"
+                        size={20}
+                     />
+                        )}
+                    </TouchableOpacity>
+                     
                 </View>
-            </View>
+                <Animatable.View>
+                    <TouchableOpacity>
+                        <Text>Sign In</Text>
+                    </TouchableOpacity>
+                </Animatable.View>
+                <Animatable.View>
+                    <Text>Sign Up</Text>
+                </Animatable.View>
+
+            </Animatable.View>
         </View>
     )
 };
@@ -87,7 +151,7 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         paddingTop: 10,
         flexDirection: "row",
-        paddingBottom: 2, 
+        paddingBottom: 1, 
         borderBottomColor: '#c9cccb',
         marginBottom: 20
     },

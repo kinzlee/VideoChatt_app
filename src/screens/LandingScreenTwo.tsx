@@ -7,12 +7,16 @@ import {
 import colors from "../constants/colors"
 import SvgOne from "../assets/img/svgOne.svg"
 import SvgTwo from "../assets/img/svgTwo.svg"
+import * as Animatable from 'react-native-animatable';
 
 const LandingScreenTwo: any = () => {
   return (
     <View style={styles.container}>
       <View style={styles.screen}>
-        <View
+        <Animatable.View
+        animation="bounceInDown"
+        direction="normal"
+        easing="ease-in"
           style={
             styles.contentContainer
           }
@@ -40,40 +44,47 @@ const LandingScreenTwo: any = () => {
               />
             </View>
           </View>
-        </View>
-        <Text
+        </Animatable.View>
+        {/* <Text
           style={{
             color: colors.accentColor,
           }}
         >
           Swipe Left '&gt;'{" "}
-        </Text>
+        </Text> */}
       </View>
-      <View style={styles.footer}>
+      <Animatable.View animation="fadeInUp" direction="normal" style={styles.footer}>
         <View
           style={{
             paddingTop: 14,
             margin: 20,
           }}
         >
-          <Text
+          <Animatable.Text
+          animation="bounceInRight"
+          direction="normal"
+          easing="ease-in-out"
             style={styles.textStyle}
           >
             This is the Vide Chatt React
             Native Mobile Application
-          </Text>
+          </Animatable.Text>
         </View>
         <View style={styles.swipeText}>
-          <Text
+          <Animatable.Text
+            animation="pulse"
+          direction="normal"
+          easing="ease-out"
+          iterationCount="infinite"
             style={{
               color:
                 colors.primaryColor,
             }}
           >
             Swipe Left &gt;&gt;{" "}
-          </Text>
+          </Animatable.Text>
         </View>
-      </View>
+      </Animatable.View>
     </View>
   )
 }
