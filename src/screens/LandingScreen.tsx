@@ -5,7 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native"
-import SvgThree from "../assets/img/svgThree.svg"
+import * as SvgThree from "../assets/img/svgThree.svg"
 import colors from "../constants/colors"
 import * as Animatable from 'react-native-animatable';
 
@@ -20,7 +20,7 @@ const LandingScreen: any = ({
         animation="fadeInLeft"
         direction="normal"
         easing="ease-in-out"
-        iterationCount={6}
+        iterationCount={2}
           style={styles.svgContainer}
         >
           <SvgThree
@@ -38,7 +38,7 @@ const LandingScreen: any = ({
               }
             >
               <Animatable.Text
-                animation="rubberBand"
+                animation="pulse"
                 direction="alternate"
                 easing="ease-in-out"
                 iterationCount="infinite"
@@ -49,7 +49,7 @@ const LandingScreen: any = ({
                 Hey
               </Animatable.Text>
               <Animatable.Text
-                animation="rubberBand"
+                animation="pulse"
                 direction="alternate"
                 easing="ease-in-out"
                 iterationCount="infinite"
@@ -107,7 +107,7 @@ const LandingScreen: any = ({
             Please Sign In to continue
           </Text>
           <Animatable.View
-          animation="pulse"
+          animation="shake"
         direction="alternate"
         easing="ease-in-out"
         iterationCount="infinite"
