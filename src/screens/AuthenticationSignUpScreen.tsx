@@ -11,16 +11,18 @@ const AuthenticationSignUpScreen = ({navigation}) => {
     const [flow, setFlow] = useState({
         email: '',
         Password: '',
+        validated: false,
         inputChangeText: false,
         textHidden: true
     })
 
     const onChangeTextHandler = (value) => {
-        if(value.length !== 0) {
+        if(value.length !== 0 && value.length >= 7) {
             setFlow({
                 ...flow,
                 email: value,
-                inputChangeText: true
+                inputChangeText: true,
+                validated: true
             })
         } else {
             setFlow({
@@ -68,11 +70,19 @@ const AuthenticationSignUpScreen = ({navigation}) => {
                     autoCapitalize="none"
                     onChangeText={(text) => onChangeTextHandler(text)}
                      />
+                     {
+                         flow.validated == false ? (
+                     <Feather 
+                        name="check-circle"
+                        color={colors.greyColor}
+                        size={20}
+                     />) :
                      <Feather 
                         name="check-circle"
                         color="green"
                         size={20}
                      />
+                     }
                 </View>
                 <Text style={styles.fieldHeader}>Password</Text>
                 <View style={styles.fieldcontainer}>

@@ -4,6 +4,7 @@ import colors from '../constants/colors';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import * as Animatable from 'react-native-animatable';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 // import { types } from '@babel/core';
 
@@ -17,17 +18,21 @@ const AuthenticationSignInScreen = ({navigation}) => {
     })
 
     const onChangeTextHandler = (value) => {
-        if(value.length !== 0) {
+        if(value.length !== 0 && value.length >= 7) {
             setFlow({
                 ...flow,
                 email: value,
-                inputChangeText: true
+                inputChangeText: true,
+                validated: true
             })
-        } else {
+        } else 
+        
+        {
             setFlow({
                 ...flow,
                 email: value,
-                inputChangeText: false
+                inputChangeText: false,
+                validated: false
             })
         }
     }
@@ -39,20 +44,7 @@ const AuthenticationSignInScreen = ({navigation}) => {
         })
     }
 
-    const onConfirmEmailHandler = (value) => {
-        if(value.length >= 5) {
-            setFlow({
-                ...flow,
-                validated: true
-            })
-        }else {
-            setFlow({
-                ...flow,
-                validated: false
-            })
-        }
-    }
-
+    
     const onTextHiddenHandler = () => {
         setFlow({
             ...flow,
@@ -82,12 +74,19 @@ const AuthenticationSignInScreen = ({navigation}) => {
                     style={styles.inputField}
                     autoCapitalize="none"
                     onChangeText={(text) => onChangeTextHandler(text)}
-                     />
+                     />{
+                         flow.validated == false ? (
+                     <Feather 
+                        name="check-circle"
+                        color={colors.greyColor}
+                        size={20}
+                     />) :
                      <Feather 
                         name="check-circle"
                         color="green"
                         size={20}
                      />
+                     }
                 </View>
                 <Text style={styles.fieldHeader}>Password</Text>
                 <View style={styles.fieldcontainer}>
