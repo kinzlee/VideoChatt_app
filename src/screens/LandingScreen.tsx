@@ -5,7 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native"
-import * as SvgThree from "../assets/img/svgThree.svg"
+import  SvgThree from "../assets/img/svgThree.svg"
 import colors from "../constants/colors"
 import * as Animatable from 'react-native-animatable';
 

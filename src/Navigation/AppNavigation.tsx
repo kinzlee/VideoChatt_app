@@ -7,12 +7,14 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Starter from '../screens/LandingScreen';
 import StarterOne from '../screens/LandingScreenTwo';
 import CallScheduler from '../screens/CallSchedulerScreen';
-import Authentication from '../screens/AuthenticationScreen';
+import AuthenticationSignUp from '../screens/AuthenticationSignUpScreen';
+import AuthenticationSignIn from '../screens/AuthenticationSignInScreen';
 import VideoCall from '../screens/VideoCallScreen';
 import colors from '../constants/colors';
 
 type StackParamList =  {
-    Authentication: undefined,
+    AuthenticationSignIn: undefined,
+    AuthenticationSignUp: undefined,
     CallScheduler: undefined, 
     VideoCall: undefined
 }
@@ -27,7 +29,8 @@ const Stack = createStackNavigator<StackParamList>();
 const MainNavigation = () => {
     return (
         <Stack.Navigator headerMode="none">
-        <Stack.Screen name="Authentication" component={Authentication} />
+        <Stack.Screen name="AuthenticationSignIn" component={AuthenticationSignIn}/>
+        <Stack.Screen name="AuthenticationSignUp" component={AuthenticationSignUp} />
         <Stack.Screen name="VideoCall" component={VideoCall} />
         <Stack.Screen name="CallScheduler" component={CallScheduler} />
         </Stack.Navigator>

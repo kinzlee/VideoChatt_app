@@ -7,10 +7,11 @@ import * as Animatable from 'react-native-animatable';
 
 // import { types } from '@babel/core';
 
-const AuthenticationScreen = ({navigation}) => {
+const AuthenticationSignInScreen = ({navigation}) => {
     const [flow, setFlow] = useState({
         email: '',
         Password: '',
+        validated: false,
         inputChangeText: false,
         textHidden: true
     })
@@ -36,6 +37,20 @@ const AuthenticationScreen = ({navigation}) => {
             ...flow,
             Password: value
         })
+    }
+
+    const onConfirmEmailHandler = (value) => {
+        if(value.length >= 5) {
+            setFlow({
+                ...flow,
+                validated: true
+            })
+        }else {
+            setFlow({
+                ...flow,
+                validated: false
+            })
+        }
     }
 
     const onTextHiddenHandler = () => {
@@ -165,4 +180,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default AuthenticationScreen;
+export default AuthenticationSignInScreen;

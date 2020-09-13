@@ -98,8 +98,9 @@ export default class VideoCall extends Component<Props, State> {
      * @description Function to start the call
      */
     startCall = async () => {
+        const token: string = '006e3eccb6328aa4d83811513e9fcf434c4IACzM2Agk7hfGuAXVMECNvXMPsCivuH4EtCD/rvGK6juYQZa8+gAAAAAEABsKnYmr5RfXwEAAQCulF9f';
         // Join Channel using null token and channel name
-        await this._engine?.joinChannel(null, this.state.channelName, null, 0)
+        await this._engine?.joinChannel(token, this.state.channelName, null, 0)
     }
 
     /**
