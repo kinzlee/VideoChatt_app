@@ -120,15 +120,19 @@ const AuthenticationSignInScreen = ({navigation}) => {
                     </TouchableOpacity>
                      
                 </View>
-                <Animatable.View>
-                    <TouchableOpacity onPress={() => {
+                    <TouchableOpacity  onPress={() => {
                         navigation.navigate('VideoCall')
                     }} >
-                        <Text>Sign In</Text>
-                    </TouchableOpacity>
+                <Animatable.View style={styles.mainBtn}>
+                        <Text style={{color: colors.whiteColor}} >Sign In</Text>
                 </Animatable.View>
-                <Animatable.View>
-                    <Text>Sign Up</Text>
+                    </TouchableOpacity>
+                <Animatable.View style={styles.subBtn} >
+                    <TouchableOpacity onPress={() => {
+                        navigation.navigate('AuthenticationSignUp')
+                    }} >
+                    <Text style={{color:colors.primaryColor}} >Sign Up</Text>
+                    </TouchableOpacity>
                 </Animatable.View>
 
             </Animatable.View>
@@ -177,6 +181,25 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         marginTop: -12,
         color: '#05375a'
+    },
+    mainBtn: {
+        backgroundColor: colors.primaryColor,
+        padding: 7,
+        borderRadius: 10,
+        marginHorizontal: 25,
+        marginVertical: 25,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    subBtn: {
+        backgroundColor: colors.whiteColor,
+        padding: 7,
+        borderRadius: 10,
+        marginHorizontal: 25,
+        borderWidth: 1,
+        borderColor: colors.primaryColor,
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 })
 

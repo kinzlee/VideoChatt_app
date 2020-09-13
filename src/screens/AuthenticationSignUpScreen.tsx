@@ -102,8 +102,10 @@ const AuthenticationSignUpScreen = ({navigation}) => {
                         size={20}
                      />
                         )}
-                    </TouchableOpacity>
-
+                    </TouchableOpacity>        
+                </View>
+                 <Text style={styles.fieldHeader}>Confirm Password</Text>
+                <View style={styles.fieldcontainer}>
                     <FontAwesome 
                         name="lock"
                         color="#05375a"
@@ -131,19 +133,22 @@ const AuthenticationSignUpScreen = ({navigation}) => {
                      />
                         )}
                     </TouchableOpacity>
-                     
-                </View>
+                    </View>
                 <Animatable.View
                 style={styles.mainBtn}
                 >
                     <TouchableOpacity onPress={() => {
                         navigation.navigate('VideoCall')
                     }} >
-                        <Text>Sign In</Text>
+                        <Text style={{color: colors.whiteColor}} >Sign Up</Text>
                     </TouchableOpacity>
                 </Animatable.View>
-                <Animatable.View>
-                    <Text>Sign Up</Text>
+                <Animatable.View style={styles.subBtn} >
+                    <TouchableOpacity onPress={() => {
+                        navigation.navigate('AuthenticationSignIn')
+                    }} >
+                    <Text style={{color: colors.primaryColor}} >Sign In</Text>
+                    </TouchableOpacity>
                 </Animatable.View>
 
             </Animatable.View>
@@ -195,15 +200,22 @@ const styles = StyleSheet.create({
     },
     mainBtn: {
         backgroundColor: colors.primaryColor,
-        paddingHorizontal: 3,
-        borderRadius: 10
+        padding: 7,
+        borderRadius: 10,
+        marginVertical: 10,
+        marginHorizontal: 25,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     subBtn: {
         backgroundColor: colors.whiteColor,
-        paddingHorizontal: 3,
+        padding: 7,
         borderRadius: 10,
         borderWidth: 1,
-        borderColor: colors.primaryColor
+        marginHorizontal: 25,
+        borderColor: colors.primaryColor,
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 })
 
