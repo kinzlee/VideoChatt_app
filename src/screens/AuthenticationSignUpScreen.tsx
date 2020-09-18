@@ -5,10 +5,21 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import * as Animatable from 'react-native-animatable';
 
+interface State {
+    email: string,
+    Password: string,
+    validated: boolean,
+    inputChangeText: boolean,
+    textHidden: boolean
+}
+interface Navigation {
+    navigation
+}
+
 // import { types } from '@babel/core';
 
-const AuthenticationSignUpScreen = ({navigation}) => {
-    const [flow, setFlow] = useState({
+const AuthenticationSignUpScreen = ({navigation}: Navigation) => {
+    const [flow, setFlow] = useState<State>({
         email: '',
         Password: '',
         validated: false,

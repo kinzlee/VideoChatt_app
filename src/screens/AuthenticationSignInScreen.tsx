@@ -8,8 +8,20 @@ import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 // import { types } from '@babel/core';
 
-const AuthenticationSignInScreen = ({navigation}) => {
-    const [flow, setFlow] = useState({
+interface State {
+    email: string,
+    Password: string,
+    validated: boolean,
+    inputChangeText: boolean,
+    textHidden: boolean
+}
+interface Navigation {
+    navigation
+}
+
+
+const AuthenticationSignInScreen = ({navigation}: Navigation) => {
+    const [flow, setFlow] = useState<State>({
         email: '',
         Password: '',
         validated: false,
